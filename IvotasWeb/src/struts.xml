@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The core configuration file for the framework is the default (struts.xml) file
+and should reside on the classpath of the webapp (generally /WEB-INF/classes). -->
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+  <!-- devMode equals debug information and reload everything for every request -->
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.ui.theme" value="simple" />
+  <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+  <package name="Ivotas_Web" extends="struts-default">
+	
+	<default-action-ref name="index"/>
+	
+	<global-results>
+		<result name="error">/error.jsp</result>
+	</global-results>
+
+	<!-- all exceptions not caught by the application will lead to error.jsp -->
+	<global-exception-mappings>
+		<exception-mapping exception="java.lang.Exception" result="error" />
+	</global-exception-mappings>
+
+	<!-- 'index' action leads to the view provided by LoginAdmin.jsp -->
+    <action name="index">
+      <result>/LoginAdmin.jsp</result>
+    </action>
+    
+	<action name="testconnect" class="wbserver.action.WbsTestConneAction" method="execute">
+		<result name="success">/LoginUser.jsp</result>
+	</action>
+	
+	<action name="Pessoa">
+		<result>/inserirPessoa.jsp</result>
+	</action>
+	
+	<action name="inserirPessoa" class="wbserver.action.WbsInsertPessoaAction" method="execute">
+		<result name="success">/inserirPessoa.jsp</result>
+	</action>
+	
+	<action name="Faculdade">
+		<result>/InserirFaculDpto.jsp</result>
+	</action>
+	
+	<action name="inserirFaculdade" class="wbserver.action.WbsInsertFaculDptoAction" method="execute">
+		<result name="success">/InserirFaculDpto.jsp</result>
+	</action>
+	
+	<action name="Eleicao">
+		<result>/CriarEleicao.jsp</result>
+	</action>
+	
+	<action name="criarEleicao" class="wbserver.action.WbsCreateElectionAction" method="execute">
+		<result name="success">/CriarEleicao.jsp</result>
+	</action>
+	
+	<action name="Candidatos">
+		<result>/InserirLista.jsp</result>
+	</action>
+	
+	<action name="inserirlista" class="wbserver.action.WbsInsertListAction" method="execute">
+		<result name="success">/InserirLista.jsp</result>
+	</action>
+	
+	<action name="AdminConsole">
+		<result>/AdminConsole.jsp</result>
+	</action>
+    <action name="login" class="wbserver.action.LoginAdminAction" method="execute">
+      <result name="success">/AdminConsole.jsp</result>
+      <result name="input">/LoginAdmin.jsp</result>
+     <!-- <result name="login">/LoginAdmin.jsp</result> -->
+    </action>
+
+  </package>
+
+</struts>
