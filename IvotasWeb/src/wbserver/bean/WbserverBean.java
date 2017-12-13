@@ -10,6 +10,7 @@ import Server_RMI.Comunication_server;
 
 public class WbserverBean {
 	private Comunication_server server;
+	
 	public WbserverBean() throws AccessException, RemoteException, NotBoundException{
 		server = (Comunication_server) LocateRegistry.getRegistry(6500).lookup("connection_RMI");
 		System.out.println("Conexao RMI Iniciada !");

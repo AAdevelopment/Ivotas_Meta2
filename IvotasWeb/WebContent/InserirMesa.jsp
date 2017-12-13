@@ -25,5 +25,7 @@
 			<s:textfield name="mesa" /><br>
 			<s:submit />
 		</s:form>
+		<br>
+		<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>
   </body>
 </html>

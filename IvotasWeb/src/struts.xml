@@ -27,8 +27,11 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	</global-exception-mappings>
 
 	<!-- 'index' action leads to the view provided by LoginAdmin.jsp -->
+	<action name="loginAdmin">
+		<result>/LoginAdmin.jsp</result>
+	</action>
     <action name="index">
-      <result>/LoginAdmin.jsp</result>
+      <result>/LoginUser.jsp</result>
     </action>
     
 	<action name="testconnect" class="wbserver.action.WbsTestConneAction" method="execute">

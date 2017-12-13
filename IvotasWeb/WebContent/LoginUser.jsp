@@ -19,7 +19,6 @@
   </head>
 
   <body>
-	<h2>valor:<s:property value="wb.testconnection"/> </h2>
     <div class="container">
         <h2 class="form-signin-heading">Please sign in Ivotas Web</h2>
         <s:form action="login" method="post">
@@ -30,5 +29,8 @@
 			<s:submit />
 		</s:form>
     </div> <!-- /container -->
+    <br>
+    <br>
+    <a href="<s:url action="loginAdmin"/>">go to Admin Sign in</a>
   </body>
 </html>
