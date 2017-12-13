@@ -23,7 +23,7 @@
 		<li><a href="<s:url action="Eleicao"/>">Criar eleição</a><br><br></li>
 		<li><a href="<s:url action="testconnect"/>">Consultar detalhes de eleição</a><br><br></li>
 		<li><a href="<s:url action="Candidatos"/>">Gerir listas de candidatos</a><br><br></li>
-		<li><a href="<s:url action="testconnect"/>">Gerir mesas de voto</a><br><br></li>
+		<li><a href="<s:url action="Mesa"/>">Gerir mesas de voto</a><br><br></li>
 		<li><a href="<s:url action="testconnect"/>">Alterar propriedade da eleição</a><br><br></li>
 	</ol>
   </body>

@@ -150,7 +150,6 @@ public class Eleicao implements Runnable,Serializable {
     public void StartEleicao() throws IOException{
         t = new Thread(this,titulo);
         t.start();
-        System.out.println("Iniciou o start eleicao");
         for(Mesa_voto m:this.mesas){
             m.StartTable(m);
         }

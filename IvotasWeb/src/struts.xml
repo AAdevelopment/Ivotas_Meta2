@@ -67,6 +67,14 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 		<result name="success">/InserirLista.jsp</result>
 	</action>
 	
+	<action name="Mesa">
+		<result>/InserirMesa.jsp</result>
+	</action>
+	
+	<action name="inserirMesa" class="wbserver.action.WbsCreateMesaAction" method="execute">
+		<result name="success">/InserirMesa.jsp</result>
+	</action>
+	
 	<action name="AdminConsole">
 		<result>/AdminConsole.jsp</result>
 	</action>

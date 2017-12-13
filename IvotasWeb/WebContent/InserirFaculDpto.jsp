@@ -11,7 +11,7 @@
 	<H2>Cadastrar Faculdade/Dpto</H2>
 	<s:form action="inserirFaculdade" method="post">
 		<s:text name="nome da Faculdade:" />
-		<s:textfield name="name"/>
+		<s:textfield name="nome"/>
 		<br>
 		<br>
 		<s:text name="Departamento1:" />
