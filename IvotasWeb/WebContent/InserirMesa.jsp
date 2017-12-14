@@ -27,5 +27,7 @@
 		</s:form>
 		<br>
 		<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>
+		<br>
+		<p><s:property value="wb.mesasVoto" /></p>
   </body>
 </html>

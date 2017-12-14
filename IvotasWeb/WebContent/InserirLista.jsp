@@ -4,7 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="signin.css" rel="stylesheet">
+ <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inserir Lista de Candidatos</title>
 </head>
@@ -43,5 +46,7 @@
 	</s:form>
 	<br>
 	<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>
+	<br>
+	<p><s:property value="wb.candidatosList" /></p>
 </body>
 </html>

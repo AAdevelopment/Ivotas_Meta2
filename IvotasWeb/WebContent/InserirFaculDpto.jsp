@@ -4,6 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- Bootstrap core CSS -->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
 <link href="signin.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inserir Faculdade/Dpto</title>
@@ -12,7 +16,7 @@
 	<H2>Cadastrar Faculdade/Dpto</H2>
 	<s:form action="inserirFaculdade" method="post">
 		<s:text name="nome da Faculdade:" />
-		<s:textfield name="nome"/>
+		<s:textfield name="nome" />
 		<br>
 		<br>
 		<s:text name="Departamento1:" />

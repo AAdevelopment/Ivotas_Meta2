@@ -26,6 +26,16 @@ public class WbsCreateMesaAction extends ActionSupport implements SessionAware {
 	public String getMesa() {
 		return mesa;
 	}
+	public WbserverBean getWb() {
+		return wb;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+
 	public void setMesa(String mesa) {
 		this.mesa = mesa;
 	}

@@ -4,18 +4,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- Bootstrap core CSS -->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
 <link href="signin.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inserir Pessoa</title>
 </head>
 <body>
 	<H2>Cadastrar nova Pessoa</H2>
-	<s:form  action="inserirPessoa" method="post">
+	<s:form action="inserirPessoa" method="post">
 		<s:text name="Tipo:" />
 		<s:textfield name="pessoa[0]" />
 		<br>
 		<s:text name="name:" />
-		<s:textfield name="pessoa[1]"/>
+		<s:textfield name="pessoa[1]" />
 		<br>
 		<br>
 		<s:text name="Cartao:" />

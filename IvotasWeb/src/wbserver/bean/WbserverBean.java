@@ -39,6 +39,14 @@ public class WbserverBean {
 		return true;
 	}
 	
+	public String getMesasVoto() throws RemoteException{
+		return server.getMesasList();
+	}
+	
+	public String getCandidatosList() throws RemoteException{
+		return server.getCandidatosList();
+	}
+	
 	public boolean CreateMesa(String departamento) throws RemoteException{
 		server.create_mesa(departamento);
 		return true;
