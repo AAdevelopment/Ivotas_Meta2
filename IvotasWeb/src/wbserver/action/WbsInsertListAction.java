@@ -44,6 +44,10 @@ public class WbsInsertListAction extends ActionSupport implements SessionAware {
 	}
 
 
+	public WbserverBean getWb() {
+		return wb;
+	}
+
 	public String getTipo() {
 		return tipo;
 	}

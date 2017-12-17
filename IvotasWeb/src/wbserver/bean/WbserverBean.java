@@ -7,6 +7,7 @@ import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
 
 import Server_RMI.Comunication_server;
+import Server_RMI.Eleicao;
 
 public class WbserverBean {
 	private Comunication_server server;
@@ -47,8 +48,33 @@ public class WbserverBean {
 		return server.getCandidatosList();
 	}
 	
+
+	
+	public String[] procuraEleicao(String titulo) throws RemoteException{
+		String s=(server.procuraEleicao(titulo).toString());
+		String array[]= new String [5];
+		String split[]=s.split("\\|");
+		for(int i=0;i<array.length;i++){
+			array[i]=split[i+1];
+			System.out.println(array[i]);
+		}
+		
+		return array;
+		
+	}
+	
 	public boolean CreateMesa(String departamento) throws RemoteException{
 		server.create_mesa(departamento);
+		return true;
+	}
+	
+	public void Alterar_Eleicao(String titulo,String[]array) throws RemoteException{
+		server.alterar_eleicao(titulo, array);
+	}
+	
+	public boolean AddTableandListToElection(String electionTitle,String ListTitle,Integer id) throws RemoteException{
+		server.Add_table_to_election(electionTitle, id);
+		server.Add_list_to_Election(electionTitle, ListTitle);
 		return true;
 	}
 }

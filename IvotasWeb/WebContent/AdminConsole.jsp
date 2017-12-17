@@ -9,6 +9,7 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+    <link href="cover.css" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -16,7 +17,7 @@
   </head>
   <title>Admin.Console</title>
   <body>
-	<h2>ADMIN OPTIONS:</h2>
+	<h2>Admin Options:</h2>
 	<br>
 	<br>
 	<br>
@@ -28,7 +29,7 @@
 		<li><a href="<s:url action="testconnect"/>">Consultar detalhes de eleição</a><br><br></li>
 		<li><a href="<s:url action="Candidatos"/>">Gerir listas de candidatos</a><br><br></li>
 		<li><a href="<s:url action="Mesa"/>">Gerir mesas de voto</a><br><br></li>
-		<li><a href="<s:url action="testconnect"/>">Alterar propriedade da eleição</a><br><br></li>
+		<li><a href="<s:url action="altEleicao"/>">Alterar propriedade da eleição</a><br><br></li>
 	</ol>
   </body>
 </html>

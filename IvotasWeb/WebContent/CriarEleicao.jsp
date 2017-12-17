@@ -9,6 +9,7 @@
 
 <!-- Custom styles for this template -->
 <link href="signin.css" rel="stylesheet">
+<link href="cover.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Criar Eleicao</title>
 </head>
@@ -39,8 +40,11 @@
 		<s:textfield name="eleicao[4]" />
 		<br>
 		<br>
-		<s:submit /> <input type="button" value="Refresh form" onClick="document.location.reload(true)">
+		<s:submit/> <input type="button" value="Refresh form" onClick="document.location.reload(true)">
 	</s:form>
+	<br>
+	<a href="<s:url action="insertTablelist"/>">Adicionar mesas e Listas de candidatos</a>
+	<br>
 	<br>
 	<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>
 </body>

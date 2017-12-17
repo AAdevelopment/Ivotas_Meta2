@@ -8,6 +8,7 @@
     <link href="bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+    <link href="cover.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inserir Lista de Candidatos</title>
 </head>

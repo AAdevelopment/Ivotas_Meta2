@@ -3,6 +3,7 @@ package wbserver.action;
 import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -15,11 +16,12 @@ public class WbsCreateElectionAction extends ActionSupport implements SessionAwa
 	private WbserverBean wb;
 	private Map<String, Object> session;
 	private String[]eleicao = new String[5];
-	
-	
+
+
 	public String execute() throws AccessException, RemoteException, NotBoundException {
 		this.setWb(new WbserverBean());
 		this.getWbserverBean().criarEleicao(this.getEleicao());
+		this.session.put("titulo",eleicao[1]);
 		return SUCCESS;		
 	}
 	
@@ -33,7 +35,8 @@ public class WbsCreateElectionAction extends ActionSupport implements SessionAwa
 		this.eleicao = eleicao;
 	}
 
-
+	
+	
 	public void setWb(WbserverBean wb) {
 		this.wb = wb;
 	}

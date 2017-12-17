@@ -59,7 +59,14 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	</action>
 	
 	<action name="criarEleicao" class="wbserver.action.WbsCreateElectionAction" method="execute">
-		<result name="success">/CriarEleicao.jsp</result>
+		<result name="success" ></result>
+		<result type="redirectAction">
+            <param name="actionName">dtEleicao</param>
+        </result>
+	</action>
+	
+	<action name="dtEleicao" class="wbserver.action.WbsdtElectionAction" method="execute">
+		<result name="success">/detalhesEleicao.jsp</result>
 	</action>
 	
 	<action name="Candidatos">
@@ -75,7 +82,22 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	</action>
 	
 	<action name="inserirMesa" class="wbserver.action.WbsCreateMesaAction" method="execute">
-		<result name="success">/InserirMesa.jsp</result>
+      <result name="success">/InserirMesa.jsp</result>
+  	</action>
+  	
+  	<action name="insertTablelist">
+		<result>/AddTableandList.jsp</result>
+	</action>
+	<action name="inserirMesaLista" class="wbserver.action.WbsAddListTableAction" method="execute">
+		<result name="success">/AddTableandList.jsp</result>
+	</action>
+	
+	<action name="altEleicao">
+		<result>/AlterarEleicao.jsp</result>
+	</action>
+	
+	<action name="AlterarELeicao" class="wbserver.action.WbsAlterElectAction" method="execute">
+		<result name="success">/AlterarEleicao.jsp</result>
 	</action>
 	
 	<action name="AdminConsole">
