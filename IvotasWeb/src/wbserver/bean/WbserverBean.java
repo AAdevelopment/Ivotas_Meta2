@@ -6,14 +6,15 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
 
+import Server_RMI.Comunication_client;
 import Server_RMI.Comunication_server;
 import Server_RMI.Eleicao;
 
-public class WbserverBean {
+public class WbserverBean  {
 	private Comunication_server server;
-	
-	public WbserverBean() throws AccessException, RemoteException, NotBoundException{
-		server = (Comunication_server) LocateRegistry.getRegistry(6500).lookup("connection_RMI");
+	private Comunication_client client;
+	public WbserverBean() throws NotBoundException, AccessException, RemoteException{
+		server = (Comunication_server) LocateRegistry.getRegistry(6500).lookup("connection_RMI");		
 		System.out.println("Conexao RMI Iniciada !");
 	}
 	
@@ -70,6 +71,18 @@ public class WbserverBean {
 	
 	public void Alterar_Eleicao(String titulo,String[]array) throws RemoteException{
 		server.alterar_eleicao(titulo, array);
+	}
+	
+	public ArrayList<String> getEleicoesTitles() throws RemoteException{
+		ArrayList<String>el = new ArrayList<String>();
+		int size=server.get_Eleicoes().size();
+		System.out.println(size);
+		for(int i=0;i<size;i++){
+			el.add(server.get_Eleicoes().get(i).getTitulo());
+			System.out.println(el.get(i));
+		}
+		
+		return el;
 	}
 	
 	public boolean AddTableandListToElection(String electionTitle,String ListTitle,Integer id) throws RemoteException{

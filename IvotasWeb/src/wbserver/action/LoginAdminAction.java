@@ -1,5 +1,6 @@
 package wbserver.action;
 
+import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Map;
@@ -19,12 +20,12 @@ public class LoginAdminAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		if((this.username != null && !username.equals(""))&&
 			this.password != null && !this.password.equals("")) {
-			
+			session.put("username", username);
+			session.put("password", password);
 			return SUCCESS;
 		}
 		else
 			return LOGIN;
-		
 	}
 	
 	public String getUsername() {
@@ -44,11 +45,11 @@ public class LoginAdminAction extends ActionSupport implements SessionAware {
 	public void setWb(WbserverBean wb) {
 		this.wb = wb;
 	}
-	public WbserverBean getWbserverBean() {
+	public WbserverBean getWbserverBean() throws AccessException, RemoteException {
 		if(!session.containsKey("WbserverBean"))
 			try {
 				this.setWb(new WbserverBean());
-			} catch (RemoteException | NotBoundException e) {
+			} catch (NotBoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
