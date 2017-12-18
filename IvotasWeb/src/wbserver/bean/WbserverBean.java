@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Server_RMI.Comunication_client;
 import Server_RMI.Comunication_server;
 import Server_RMI.Eleicao;
+import Server_RMI.Pessoa;
 
 public class WbserverBean  {
 	private Comunication_server server;
@@ -65,8 +66,12 @@ public class WbserverBean  {
 	}
 	
 	public boolean CreateMesa(String departamento) throws RemoteException{
-		server.create_mesa(departamento);
-		return true;
+		if(departamento!=null){
+			server.create_mesa(departamento);
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	public void Alterar_Eleicao(String titulo,String[]array) throws RemoteException{
@@ -81,7 +86,6 @@ public class WbserverBean  {
 			el.add(server.get_Eleicoes().get(i).getTitulo());
 			System.out.println(el.get(i));
 		}
-		
 		return el;
 	}
 	
@@ -89,5 +93,12 @@ public class WbserverBean  {
 		server.Add_table_to_election(electionTitle, id);
 		server.Add_list_to_Election(electionTitle, ListTitle);
 		return true;
+	}
+	
+	public Pessoa AutenticateCC(String CC) throws RemoteException{
+		System.out.println("ola");
+		Pessoa p=server.autenticate("cartao", CC);
+		System.out.println(server.autenticate("cartao", CC).toString());
+		return p;
 	}
 }

@@ -31,12 +31,12 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 		<result>/LoginAdmin.jsp</result>
 	</action>
     <action name="index">
-      <result>/LoginUser.jsp</result>
+      <result>/index.jsp</result>
     </action>
     
-	<action name="testconnect" class="wbserver.action.WbsTestConneAction" method="execute">
+	<!--  <action name="userclient" class="wbserver.action.WbsTestConneAction" method="execute">
 		<result name="success">/LoginUser.jsp</result>
-	</action>
+	</action>-->
 	
 	<action name="Pessoa">
 		<result>/inserirPessoa.jsp</result>
@@ -104,7 +104,13 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 		<result name="success">/eleicoesPage.jsp</result>
 	</action>
 	
-		
+	<action name="autenticateCCform">
+		<result>/validateCC.jsp</result>
+	</action>
+	
+	<action name="autenticateCC" class="wbserver.action.WbsValidateCC" method="execute">
+		<result name="success">/eleicoesPage.jsp</result>
+	</action>	
 	<action name="AdminConsole">
 		<result>/AdminConsole.jsp</result>
 	</action>
