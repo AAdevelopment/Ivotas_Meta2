@@ -29,7 +29,7 @@
 			<s:submit />
 		</s:form>
 		<br>
-		<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>
+		<a href="<s:url action="dtEleicao"/>">Ir para os detalhes da Eleicao</a>
 		<br>
 		<p><s:property value="wb.mesasVoto" /></p>
   </body>

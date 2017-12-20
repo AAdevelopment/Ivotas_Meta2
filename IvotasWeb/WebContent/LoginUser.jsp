@@ -20,13 +20,19 @@
   </head>
 
   <body>
+  	<s:if test="hasActionErrors()">
+   		<div class="errors">
+      		<s:actionerror/>
+   		</div>
+	</s:if>
+	
     <div class="container">
         <h2 class="form-signin-heading">Please sign in Ivotas Web</h2>
-        <s:form action="login" method="post">
-			<s:text name="Username:" />
-			<s:textfield name="username" /><br>
+        <s:form action="userclient" method="post">
+			<s:text name="cartão do cidadão:" />
+			<s:textfield  key="global.username" name="username" /><br>
 			<s:text name="Password:"  />
-			<s:textfield name="password"/><br>
+			<s:password  key="global.password" name="password"/><br>
 			<s:submit />
 		</s:form>
     </div> <!-- /container -->

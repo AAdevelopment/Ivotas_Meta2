@@ -16,11 +16,11 @@
 	<c:forEach
 		items="${wb.eleicoesTitles}" var="value">
 		<p class="lead">
-			<a  style="color:#fff" href="<s:url action="dtEleicao"/>" class="btn btn-lg btn-secondary"><c:out value="${value}" /> 
-			<c:set var = "titulo" scope = "session" value = "${value}" /></a><br>		
+			<a  style="color:#fff" href="<s:url action="dtEleicao"/>" class="btn btn-lg btn-secondary"><c:out value="${value}" />
+			<c:set var = "titulo" scope = "session" value = "${value}" /></a><br>
 		</p>
 	</c:forEach>
-	<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a> 
+	<a style="color:#fff" href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a> 
 	</main>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

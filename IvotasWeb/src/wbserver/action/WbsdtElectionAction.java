@@ -3,12 +3,14 @@ package wbserver.action;
 import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import Server_RMI.Eleicao;
 import wbserver.bean.WbserverBean;
 
 public class WbsdtElectionAction extends ActionSupport implements SessionAware  {
@@ -16,17 +18,38 @@ public class WbsdtElectionAction extends ActionSupport implements SessionAware  
 	private WbserverBean wb;
 	private Map<String, Object> session;
 	private String eleicao[] = new String[5];
-
+    private ArrayList <String> Candidatos = new ArrayList<String>();
 	
 	public String execute() throws AccessException, RemoteException, NotBoundException {
 		this.setWb(new WbserverBean());
 		if(session.containsKey("titulo"))
 			setTitulo(session.get("titulo").toString());
 		eleicao=this.getWbserverBean().procuraEleicao(titulo);
+		Eleicao el=this.getWbserverBean().getServer().procuraEleicao(titulo);
+		Candidatos.addAll(this.getWbserverBean().List(el));
 		return SUCCESS;	
 	}
 	
 	
+
+	public WbserverBean getWb() {
+		return wb;
+	}
+
+
+
+	public ArrayList<String> getCandidatos() {
+		return Candidatos;
+	}
+
+	public void setCandidatos(ArrayList<String> candidatos) {
+		Candidatos = candidatos;
+	}
+
+
+
+
+
 	public String[] getEleicao() {
 		return eleicao;
 	}

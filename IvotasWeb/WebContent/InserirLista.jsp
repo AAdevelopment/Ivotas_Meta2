@@ -16,7 +16,9 @@
 	<H2>Cadastrar Nova lista de Candidatos</H2>
 	<s:form action="inserirlista" method="post">
 		<s:text name="Tipo da lista:" />
-		<s:textfield name="tipo"/>
+		<s:checkbox name="tipo" fieldValue="docente" label="docente"/>docente
+		<s:checkbox name="tipo" fieldValue="aluno" label="aluno"/>aluno
+		<s:checkbox name="tipo" fieldValue="funcionario" label="funcionario"/>funcionario
 		<br>
 		<br>
 		<s:text name="Nome da lista:" />

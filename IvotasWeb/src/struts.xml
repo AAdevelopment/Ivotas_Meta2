@@ -13,6 +13,8 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
   <constant name="struts.devMode" value="true" />
   <constant name="struts.ui.theme" value="simple" />
   <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+  <constant name="struts.custom.i18n.resources" value="global" />
+  
   <package name="Ivotas_Web" extends="struts-default">
 	
 	<default-action-ref name="index"/>
@@ -30,13 +32,17 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	<action name="loginAdmin">
 		<result>/LoginAdmin.jsp</result>
 	</action>
+	
     <action name="index">
       <result>/index.jsp</result>
     </action>
     
-	<!--  <action name="userclient" class="wbserver.action.WbsTestConneAction" method="execute">
-		<result name="success">/LoginUser.jsp</result>
-	</action>-->
+	  <action name="userclient" class="wbserver.action.WbsLoginVoterAction" method="execute">
+		<result name="success" ></result>
+		<result type="redirectAction">
+            <param name="actionName">ListaEleicoes</param>
+        </result>
+	</action>
 	
 	<action name="Pessoa">
 		<result>/inserirPessoa.jsp</result>
@@ -61,7 +67,7 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	<action name="criarEleicao" class="wbserver.action.WbsCreateElectionAction" method="execute">
 		<result name="success" ></result>
 		<result type="redirectAction">
-            <param name="actionName">dtEleicao</param>
+            <param name="actionName">insertTablelist</param>
         </result>
 	</action>
 	
@@ -109,7 +115,7 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	</action>
 	
 	<action name="autenticateCC" class="wbserver.action.WbsValidateCC" method="execute">
-		<result name="success">/eleicoesPage.jsp</result>
+		<result name="success">/LoginUser.jsp</result>
 	</action>	
 	<action name="AdminConsole">
 		<result>/AdminConsole.jsp</result>

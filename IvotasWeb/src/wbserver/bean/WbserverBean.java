@@ -5,15 +5,22 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import Server_RMI.Comunication_client;
 import Server_RMI.Comunication_server;
 import Server_RMI.Eleicao;
+import Server_RMI.ListaCandidatos;
 import Server_RMI.Pessoa;
+import Server_RMI.Resposta;
+import mesa_voto.Mesa_voto;
 
 public class WbserverBean  {
 	private Comunication_server server;
 	private Comunication_client client;
+	ArrayList<String>el = new ArrayList<String>();
+	
+
 	public WbserverBean() throws NotBoundException, AccessException, RemoteException{
 		server = (Comunication_server) LocateRegistry.getRegistry(6500).lookup("connection_RMI");		
 		System.out.println("Conexao RMI Iniciada !");
@@ -32,6 +39,14 @@ public class WbserverBean  {
 		return true;
 	}
 	
+	public ArrayList<String> getEl() {
+		return el;
+	}
+
+	public void setEl(ArrayList<String> el) {
+		this.el = el;
+	}
+
 	public boolean CriarFaculdade_Dpto(String nome,ArrayList<String>array) throws RemoteException{
 		server.CriarFaculdade_Dpto(nome, array);
 		return true;
@@ -79,14 +94,12 @@ public class WbserverBean  {
 	}
 	
 	public ArrayList<String> getEleicoesTitles() throws RemoteException{
-		ArrayList<String>el = new ArrayList<String>();
-		int size=server.get_Eleicoes().size();
-		System.out.println(size);
-		for(int i=0;i<size;i++){
-			el.add(server.get_Eleicoes().get(i).getTitulo());
-			System.out.println(el.get(i));
-		}
-		return el;
+			ArrayList<Eleicao>eleicoes = new ArrayList<Eleicao>();
+			eleicoes.addAll(server.get_Eleicoes());
+			for(int i=0;i<eleicoes.size();i++)
+				el.add(eleicoes.get(i).getTitulo());
+		
+			return el;
 	}
 	
 	public boolean AddTableandListToElection(String electionTitle,String ListTitle,Integer id) throws RemoteException{
@@ -96,9 +109,40 @@ public class WbserverBean  {
 	}
 	
 	public Pessoa AutenticateCC(String CC) throws RemoteException{
-		System.out.println("ola");
 		Pessoa p=server.autenticate("cartao", CC);
-		System.out.println(server.autenticate("cartao", CC).toString());
 		return p;
 	}
+	
+	public Resposta LoginUser(Pessoa p,String username,String password) throws RemoteException{
+		Resposta r=server.unlock_Web(p,username,password);
+		return r;
+		
+	}
+	
+	public ArrayList <String> List(Eleicao el) throws RemoteException{
+		ArrayList <ListaCandidatos> list = new ArrayList <ListaCandidatos>();
+		for(int i=0;i<server.get_Listas(el).size();i++){
+			list.add(server.get_Listas(el).get(i));
+			System.out.println(list.get(i).toString());
+			
+		}
+		ArrayList <String> v = new ArrayList<String>();
+		for(int i=0 ;i<list.size();i++)
+			v.add(list.get(i).nome);
+		return v;
+	}
+	
+	public void Votar(String lista, Eleicao eleicao, Pessoa pessoa){
+		Calendar data=Calendar.getInstance();
+		server.vote(lista, eleicao, pessoa, mesa, data);
+	}
+
+	public Comunication_server getServer() {
+		return server;
+	}
+
+	public void setServer(Comunication_server server) {
+		this.server = server;
+	}
+		
 }

@@ -16,6 +16,7 @@ public class ElectionListAction  extends ActionSupport implements SessionAware {
 	private WbserverBean wb;
 	private Map<String, Object> session;
 	public String execute() throws NotBoundException, RemoteException {
+		this.setWb(new WbserverBean());
 		this.getWbserverBean();
 		return SUCCESS;
 	}
@@ -26,6 +27,8 @@ public class ElectionListAction  extends ActionSupport implements SessionAware {
 	public void setWb(WbserverBean wb) {
 		this.wb = wb;
 	}
+	
+	
 	public WbserverBean getWbserverBean() throws AccessException, RemoteException {
 		if(!session.containsKey("WbserverBean"))
 			try {

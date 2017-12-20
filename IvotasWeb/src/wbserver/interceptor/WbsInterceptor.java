@@ -17,8 +17,16 @@ public class WbsInterceptor  implements Interceptor {
 		// this method intercepts the execution of the action and we get access
 		// to the session, to the action, and to the context of this invocation
 		
-		return invocation.invoke();
-		
+		 String username = (String) session.get("username");
+
+         if (username == null){
+                 return Action.LOGIN;
+         }
+         
+         else{
+        	 return invocation.invoke();
+         }
+
 		//	return Action.INPUT; // the clock is broken every other minute
 	}
 

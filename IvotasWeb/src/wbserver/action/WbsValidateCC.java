@@ -8,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import Server_RMI.Pessoa;
 import wbserver.bean.WbserverBean;
 
 public class WbsValidateCC extends ActionSupport implements SessionAware {
@@ -17,8 +18,13 @@ public class WbsValidateCC extends ActionSupport implements SessionAware {
 	
 	public String execute() throws RemoteException, NotBoundException{
 		this.setWb(new WbserverBean());
-		this.getWbserverBean().AutenticateCC(CC);
-		return SUCCESS;
+		Pessoa p=this.getWbserverBean().AutenticateCC(CC);
+		if(p!=null){
+			session.put("pessoa", p);
+			return SUCCESS;
+		}
+		else
+			return ERROR;
 	}
 	public WbserverBean getWbserverBean() {
 		if(!session.containsKey("WbserverBean"))

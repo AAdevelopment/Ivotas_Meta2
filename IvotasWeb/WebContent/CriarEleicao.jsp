@@ -43,7 +43,7 @@
 		<s:submit/> <input type="button" value="Refresh form" onClick="document.location.reload(true)">
 	</s:form>
 	<br>
-	<a href="<s:url action="insertTablelist"/>">Adicionar mesas e Listas de candidatos</a>
+	<a href="<s:url action="dtEleicao"/>"> ir para Detalhes da Eleicao</a>
 	<br>
 	<br>
 	<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>

@@ -17,7 +17,10 @@
 	<H2>Cadastrar nova Pessoa</H2>
 	<s:form action="inserirPessoa" method="post">
 		<s:text name="Tipo:" />
-		<s:textfield name="pessoa[0]" />
+		<s:checkbox name="pessoa[0]" fieldValue="docente" label="docente"/>docente
+		<s:checkbox name="pessoa[0]" fieldValue="aluno" label="aluno"/>aluno
+		<s:checkbox name="pessoa[0]" fieldValue="funcionario" label="funcionario"/>funcionario
+		<br>
 		<br>
 		<s:text name="name:" />
 		<s:textfield name="pessoa[1]" />
