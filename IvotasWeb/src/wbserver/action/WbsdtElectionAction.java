@@ -6,6 +6,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.websocket.Session;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,11 +24,16 @@ public class WbsdtElectionAction extends ActionSupport implements SessionAware  
 	
 	public String execute() throws AccessException, RemoteException, NotBoundException {
 		this.setWb(new WbserverBean());
-		if(session.containsKey("titulo"))
-			setTitulo(session.get("titulo").toString());
+		if(session.containsKey("tituloEleicao"))
+			setTitulo(session.get("tituloEleicao").toString());
 		eleicao=this.getWbserverBean().procuraEleicao(titulo);
 		Eleicao el=this.getWbserverBean().getServer().procuraEleicao(titulo);
 		Candidatos.addAll(this.getWbserverBean().List(el));
+		session.put("eleicao", el);
+		
+		if(session.containsKey("tituloEleicao"))
+			session.remove("tituloEleicao");
+		
 		return SUCCESS;	
 	}
 	

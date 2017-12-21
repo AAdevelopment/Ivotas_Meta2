@@ -35,7 +35,8 @@
 	<c:forEach
 		items="${Candidatos}" var="value">
 		<p class="lead">
-			<a  style="color:#fff" href="<s:url action="dtEleicao"/>" class="btn btn-lg btn-secondary"><c:out value="${value}" /></a><br>
+			<a  style="color:#fff" href="<s:url action="Vote"/>" class="btn btn-lg btn-secondary"><c:out value="${value}" /></a><br>
+			<c:set var="Candidatos" scope="session" value="${value}"></c:set>
 		</p>
 	</c:forEach>
 	<a href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a>

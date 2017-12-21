@@ -15,15 +15,27 @@ import wbserver.bean.WbserverBean;
 public class ElectionListAction  extends ActionSupport implements SessionAware {
 	private WbserverBean wb;
 	private Map<String, Object> session;
+	private ArrayList<String>Eleicoes= new ArrayList<String>();
 	public String execute() throws NotBoundException, RemoteException {
 		this.setWb(new WbserverBean());
 		this.getWbserverBean();
+		System.out.println("Session ElectionList: "+session.keySet());
 		return SUCCESS;
 	}
 	
 	public WbserverBean getWb() {
 		return wb;
 	}
+	
+	
+	public ArrayList<String> getEleicoes() {
+		return Eleicoes;
+	}
+
+	public void setEleicoes(ArrayList<String> eleicoes) {
+		Eleicoes = eleicoes;
+	}
+
 	public void setWb(WbserverBean wb) {
 		this.wb = wb;
 	}

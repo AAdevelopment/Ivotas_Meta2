@@ -20,8 +20,6 @@ public class LoginAdminAction extends ActionSupport implements SessionAware {
 	public String execute() {
 		if((this.username != null && !username.equals(""))&&
 			this.password != null && !this.password.equals("")) {
-			session.put("username", username);
-			session.put("password", password);
 			return SUCCESS;
 		}
 		else

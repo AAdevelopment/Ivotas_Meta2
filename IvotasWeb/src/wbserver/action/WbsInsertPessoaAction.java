@@ -19,8 +19,11 @@ public class WbsInsertPessoaAction extends ActionSupport implements SessionAware
 	
 	public String execute() throws AccessException, RemoteException, NotBoundException {
 		this.setWb(new WbserverBean());
-		this.getWbserverBean().CadastrarPessoa(this.getPessoa());
-		return SUCCESS;		
+		
+		if(this.getWbserverBean().CadastrarPessoa(this.getPessoa())==true)
+			return SUCCESS;
+		else
+			return ERROR;
 	}
 	
 	public String[] getPessoa() {

@@ -23,7 +23,7 @@ public class WbserverBean  {
 
 	public WbserverBean() throws NotBoundException, AccessException, RemoteException{
 		server = (Comunication_server) LocateRegistry.getRegistry(6500).lookup("connection_RMI");		
-		System.out.println("Conexao RMI Iniciada !");
+		//System.out.println("Conexao RMI Iniciada !");
 	}
 	
 	public boolean CadastrarPessoa(String[]pessoa) throws RemoteException{
@@ -132,9 +132,21 @@ public class WbserverBean  {
 		return v;
 	}
 	
-	public void Votar(String lista, Eleicao eleicao, Pessoa pessoa){
+	public boolean Votar(String lista, Eleicao eleicao, Pessoa pessoa) throws RemoteException{
+		Mesa_voto mesa = null;
+		boolean voto=false;
 		Calendar data=Calendar.getInstance();
-		server.vote(lista, eleicao, pessoa, mesa, data);
+		for(Mesa_voto m:eleicao.mesas)
+		   mesa= new Mesa_voto(m.departamento);
+		  if(server.vote(lista, eleicao, pessoa, mesa, data)==true){
+			  System.out.println("voto efetuado");
+			  voto= true;
+		  }
+		  else{
+			  voto= false;
+		  }
+		  
+		  return voto;
 	}
 
 	public Comunication_server getServer() {

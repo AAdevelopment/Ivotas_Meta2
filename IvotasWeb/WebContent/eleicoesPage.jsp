@@ -17,7 +17,7 @@
 		items="${wb.eleicoesTitles}" var="value">
 		<p class="lead">
 			<a  style="color:#fff" href="<s:url action="dtEleicao"/>" class="btn btn-lg btn-secondary"><c:out value="${value}" />
-			<c:set var = "titulo" scope = "session" value = "${value}" /></a><br>
+			<c:set var = "tituloEleicao" scope = "session" value = "${value}" /></a><br>
 		</p>
 	</c:forEach>
 	<a style="color:#fff" href="<s:url action="AdminConsole"/>">Voltar ao Admin console</a> 
