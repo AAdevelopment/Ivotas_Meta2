@@ -120,6 +120,19 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	<action name="Vote" class="wbserver.action.WbsVoteAction" method="execute">
 		<result name="success">/LoginUser.jsp</result>
 	</action>
+	
+	<action name="ExludeDptoform">
+		<result>/ExcluirDpto.jsp</result>
+	</action>
+	<action name="excluirDpto" class="wbserver.action.WbsExcludeDptoAction" method="execute">
+		<result name="success">/ExcluirDpto.jsp</result>
+	</action>
+	<action name="alterDptoform">
+		<result>/alterDpto.jsp</result>
+	</action>
+	<action name="alterDpto" class="wbserver.action.WbsAlterDptoAction" method="execute">
+		<result name="success">/alterDpto.jsp</result>
+	</action>
 	<action name="AdminConsole">
 		<result>/AdminConsole.jsp</result>
 	</action>

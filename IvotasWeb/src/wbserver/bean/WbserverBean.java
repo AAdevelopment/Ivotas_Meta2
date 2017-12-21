@@ -10,6 +10,7 @@ import java.util.Calendar;
 import Server_RMI.Comunication_client;
 import Server_RMI.Comunication_server;
 import Server_RMI.Eleicao;
+import Server_RMI.Faculdade;
 import Server_RMI.ListaCandidatos;
 import Server_RMI.Pessoa;
 import Server_RMI.Resposta;
@@ -18,7 +19,8 @@ import mesa_voto.Mesa_voto;
 public class WbserverBean  {
 	private Comunication_server server;
 	private Comunication_client client;
-	ArrayList<String>el = new ArrayList<String>();
+	private ArrayList<String>el = new ArrayList<String>();
+	private ArrayList<Faculdade> f= new ArrayList<Faculdade>();
 	
 
 	public WbserverBean() throws NotBoundException, AccessException, RemoteException{
@@ -43,6 +45,14 @@ public class WbserverBean  {
 		return el;
 	}
 
+	public ArrayList<Faculdade> getF() {
+		return f;
+	}
+
+	public void setF(ArrayList<Faculdade> f) {
+		this.f = f;
+	}
+
 	public void setEl(ArrayList<String> el) {
 		this.el = el;
 	}
@@ -50,6 +60,35 @@ public class WbserverBean  {
 	public boolean CriarFaculdade_Dpto(String nome,ArrayList<String>array) throws RemoteException{
 		server.CriarFaculdade_Dpto(nome, array);
 		return true;
+	}
+	
+	public boolean Excluir_dpto(String departamento) throws RemoteException{
+		boolean verify=false;
+		if(server.removeDepartamento(departamento)==true){
+			verify=true;
+		}
+		else{
+			verify=false;
+		}
+		return verify;
+		
+	}
+	
+	public boolean AlterarDpto(String oldname,String new_name) throws RemoteException{
+		boolean verify=false;
+		if(server.alterarDepartamento(oldname,new_name)==true){
+			verify=true;
+		}
+		else{
+			verify=false;
+		}
+		return verify;
+	}
+	
+	public ArrayList<Faculdade> Facul() throws RemoteException{
+		this.f= server.getBufferFaculdade();
+		
+		return f;
 	}
 	
 	public boolean criarEleicao(String[]eleicao) throws RemoteException{
@@ -73,7 +112,7 @@ public class WbserverBean  {
 		String split[]=s.split("\\|");
 		for(int i=0;i<array.length;i++){
 			array[i]=split[i+1];
-			System.out.println(array[i]);
+			//System.out.println(array[i]);
 		}
 		
 		return array;

@@ -22,9 +22,10 @@
 	<br>
 	<br>
 	<ol type="1">
-		<li><a href="<s:url action="testconnect"/>">Testar Conexao</a><br><br></li>
 		<li><a href="<s:url action="Pessoa"/>">Registrar Pessoas</a><br><br></li>
-		<li><a href="<s:url action="Faculdade"/>">Gerir departamentos e faculdades</a><br><br></li>
+		<li><a href="<s:url action="Faculdade"/>">Inserir departamentos e faculdades</a><br><br></li>
+		<li><a href="<s:url action="ExludeDptoform"/>">Excluir departamentos </a><br><br></li>
+		<li><a href="<s:url action="alterDptoform"/>">Alterar departamentos </a><br><br></li>
 		<li><a href="<s:url action="Eleicao"/>">Criar eleição</a><br><br></li>
 		<li><a href="<s:url action="ListaEleicoes"/>">Consultar detalhes de eleição</a><br><br></li>
 		<li><a href="<s:url action="Candidatos"/>">Gerir listas de candidatos</a><br><br></li>
